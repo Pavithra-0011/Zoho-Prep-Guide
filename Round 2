@@ -1,0 +1,29 @@
+****************************TRIPLET SUM OF 0 ***********************************
+arr = [-1, 0, 1, 2, -1, -4]
+#-4,-1,-1,0,1,2
+target = 0
+
+def hasTripletSum(arr, target):
+        # Your Code Here
+        arr.sort()
+        n = len(arr)
+        res = []
+        for i in range(0,n-2):
+            p1 = i+1
+            p2 = n-1
+            
+            while p1 < p2:
+                sum_ = arr[i] + arr[p1] + arr[p2]
+                if sum_ > 0:
+                    p2 -= 1 
+                elif sum_ < 0:
+                    p1 += 1
+                else:
+                    result = [arr[i], arr[p1], arr[p2]]
+                    res.append(sorted(result))
+                    p1 += 1
+        
+        s = set(tuple(x) for x in res)
+        return s
+
+print(hasTripletSum(arr, target))
