@@ -27,3 +27,68 @@ def hasTripletSum(arr, target):
         return s
 
 print(hasTripletSum(arr, target))
+
+***************************IMPLEMENTATION OF STACK**************************
+----> NOTE : You can also wrap it in a class and call the methods with objects.
+
+arr = [0, 1, 2]
+
+def isEmpty(arr):
+    if len(arr) == 0:
+        print("Stack is Empty")
+    else:
+        print("Stack is Not Empty")
+
+def sizeOfStack(arr):
+    print("Size of Stack", len(arr))
+
+def topElement(arr):
+    if not isEmpty(arr):
+        print(arr[-1])
+    else:
+        print("No Elements in the Stack")
+
+def RemoveTop(arr):
+    if not isEmpty(arr):
+        arr.pop()
+        print("Top Removed ->", arr)
+    else:
+        print("Stack is Empty")
+
+def Swap(arr,a,b):
+    if not isEmpty(arr):
+        arr[a], arr[b] = arr[b], arr[a]
+        print(arr)
+
+def PushElement(arr, x):
+    arr.append(x)
+    print(arr)
+            
+
+isEmpty(arr)
+RemoveTop(arr)
+PushElement(arr,3)
+Swap(arr,0,2)
+topElement(arr)
+RemoveTop(arr)
+
+***************************EQUILIBRIUM POINT************************
+NOTE -> Refer Prefix Sum Algorithm
+
+arr = [1,2,3,4,6]
+def FindEquilibriumPoint(arr):
+    Total_sum = sum(arr)
+    n = len(arr)
+    left_sum = 0
+    
+    for i in range(0,n):
+        if i > 0:
+            left_sum += arr[i-1]
+        else:
+            left_sum
+        Total_sum -= arr[i]
+        if left_sum == Total_sum:
+            return arr[i]
+    return -1
+
+print(FindEquilibriumPoint(arr))
