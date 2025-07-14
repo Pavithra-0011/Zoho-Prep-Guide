@@ -130,3 +130,59 @@ def spiralMatrix(arr):
     return res
 
 print(spiralMatrix(arr))
+
+********************************* SHARE AMONG BINS *******************************
+//SAMPLE TEST CASE 1 :
+IP : [1,3,2,5]
+OP : 2   
+
+Explanation:
+ -> Iteraion 1 : [2,3,2,4]
+ -> Iteration 2 : [3,3,2,3] 
+ -> Iteration 3 : [3,2,3,3] OP: 2
+
+SAMPLE TEST CASE 2 :
+IP : [1,7]
+OP : 0
+
+Explanation:
+ -> Iteration 1 : [2,6]
+ -> Iteration 2 : [3, 5]
+ -> Iteraion 3 : [4, 4]  OP : 0
+
+
+arr = [1,3,2,5]
+def function(arr):
+    prev_min = min(arr)
+    prev_max = max(arr) 
+
+    while True:
+        new_arr = conditionCheck(prev_min, prev_max)
+        new_min = min(new_arr)
+        new_max = max(new_arr)
+
+        if new_min == new_max:
+            return 0
+        
+        if new_min == prev_min and new_max == prev_max:
+            return new_min
+
+        prev_min = new_min
+        prev_max = new_max
+        arr = new_arr
+
+    
+def conditionCheck(mn,mx):
+    while mn <= mx:
+        if mn < mx:
+            mn = mn + 1 
+            mx = mx - 1
+        elif mn >= mx:
+            new_min = arr.index(min(arr))
+            new_max = arr.index(max(arr))
+            arr[new_min] = mn
+            arr[new_max] = mx
+            break
+    return arr
+                
+print(function(arr))
